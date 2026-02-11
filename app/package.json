@@ -1,0 +1,15 @@
+{
+  "name": "tp-api",
+  "version": "1.0.0",
+  "description": "API Express avec métriques Prometheus",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "redis": "^4.6.10",
+    "pg": "^8.11.3",
+    "prom-client": "^15.1.0"
+  }
+}

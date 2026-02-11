@@ -1,0 +1,29 @@
+api:
+  dashboard: true
+  insecure: true  # Pour le développement uniquement
+
+entryPoints:
+  web:
+    address: ":80"
+    # Redirection HTTP → HTTPS désactivée pour le développement local
+    # http:
+    #   redirections:
+    #     entryPoint:
+    #       to: websecure
+    #       scheme: https
+  websecure:
+    address: ":443"
+
+providers:
+  docker:
+    endpoint: "unix:///var/run/docker.sock"
+    exposedByDefault: false
+    network: frontend
+
+certificatesResolvers:
+  letsencrypt:
+    acme:
+      email: admin@example.com  # À remplacer par votre email
+      storage: /letsencrypt/acme.json
+      httpChallenge:
+        entryPoint: web
